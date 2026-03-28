@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kranthi | AI Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+nav {
+    position: fixed;
+    width: 100%;
+    background: #020617;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+}
+
+nav a {
+    color: #38bdf8;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero span {
+    color: #38bdf8;
+}
+
+.hero p {
+    margin-top: 10px;
+    color: #94a3b8;
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #38bdf8;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* SECTION */
+section {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* CARDS */
+.card {
+    background: #1e293b;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+    color: #94a3b8;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="hero">
+    <div>
+        <h1>Hi, I'm <span>Kranthi</span> 👋</h1>
+        <p>AIML Student | Future AI Engineer 🚀</p>
+        <button class="btn" onclick="scrollToSection()">View Projects</button>
+    </div>
+</div>
+
+<section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+        <p>
+            Passionate about Artificial Intelligence and Machine Learning.
+            I love building automation systems, robots, and smart AI tools.
+        </p>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="card">
+        <h3>🤖 AI Chatbot</h3>
+        <p>Built using Python and NLP.</p>
+    </div>
+
+    <div class="card">
+        <h3>🚗 Bluetooth Car</h3>
+        <p>Arduino-based smart vehicle project.</p>
+    </div>
+
+    <div class="card">
+        <h3>📊 ML Prediction</h3>
+        <p>Machine learning model for predictions.</p>
+    </div>
+
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="card">
+        <p>Email: your-email@gmail.com</p>
+        <p>GitHub: github.com/yourusername</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Kranthi | AI Portfolio</p>
+</footer>
+
+<script>
+function scrollToSection() {
+    document.getElementById("projects").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>
