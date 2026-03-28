@@ -167,6 +167,84 @@ function scrollToSection() {
     });
 }
 </script>
+<!-- CHATBOT -->
+<div id="chatbot">
+    <div id="chat-header">🤖 AI Chatbot</div>
+    <div id="chat-box"></div>
+    <input type="text" id="user-input" placeholder="Type a message..." />
+    <button onclick="sendMessage()">Send</button>
+</div>
 
+<style>
+#chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background: #1e293b;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#chat-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#chat-box {
+    height: 200px;
+    overflow-y: auto;
+    background: #020617;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#chat-box div {
+    margin: 5px 0;
+}
+
+input {
+    width: 70%;
+    padding: 5px;
+}
+
+button {
+    padding: 5px;
+}
+</style>
+
+<script>
+function sendMessage() {
+    let input = document.getElementById("user-input");
+    let message = input.value;
+
+    if(message === "") return;
+
+    let chatBox = document.getElementById("chat-box");
+
+    chatBox.innerHTML += "<div><b>You:</b> " + message + "</div>";
+
+    let reply = getBotReply(message);
+
+    setTimeout(() => {
+        chatBox.innerHTML += "<div><b>Bot:</b> " + reply + "</div>";
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 500);
+
+    input.value = "";
+}
+
+function getBotReply(msg) {
+    msg = msg.toLowerCase();
+
+    if(msg.includes("hello")) return "Hello Kranthi 👋";
+    if(msg.includes("name")) return "I am your AI chatbot 🤖";
+    if(msg.includes("project")) return "Check projects section 🚀";
+    if(msg.includes("ai")) return "AI is the future 🔥";
+    
+    return "Sorry, I don't understand 😅";
+}
+</script>
 </body>
 </html>
