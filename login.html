@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Face Login</title>
+
+<script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+
+<style>
+body {
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    font-family: Arial;
+}
+
+video {
+    border: 2px solid #38bdf8;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #38bdf8;
+    border: none;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🔐 Face Detection Login</h1>
+
+<video id="video" width="320" height="240" autoplay></video>
+<br>
+<button onclick="startFaceLogin()">Start Face Login</button>
+
+<script>
+const video = document.getElementById("video");
+
+// Start camera
+async function startVideo() {
+    const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+    video.srcObject = stream;
+}
+
+// Load models
+async function loadModels() {
+    await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/weights');
+}
+
+// Face detection
+async function startFaceLogin() {
+    await loadModels();
+    startVideo();
+
+    setInterval(async () => {
+        const detections = await faceapi.detectAllFaces(
+            video,
+            new faceapi.TinyFaceDetectorOptions()
+        );
+
+        if (detections.length > 0) {
+            alert("Face Detected ✅ Login Success!");
+            window.location.href = "index.html";
+        }
+    }, 1000);
+}
+</script>
+
+</body>
+</html>
